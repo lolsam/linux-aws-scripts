@@ -2,7 +2,7 @@
 
 This script will read the hostname or ip address inside a .txt file and ping that host/ip 3 times  
 
-Usecase: instead of issuing a ping command each time you can just paste your host/ip in the .txt file and let the script do the work for you. Incredibly useful if you want to ping 20-30 servers at once.
+Usecase: instead of issuing a ping command each time you can just paste a big list of host/ip in the .txt file and let the script do the work. Incredibly useful if you want to ping 20-30 servers at once.
 For example, instead of doing this:  
 
 ![image](https://user-images.githubusercontent.com/30080956/61195880-a6799c80-a690-11e9-812e-dc47475a7614.png)
