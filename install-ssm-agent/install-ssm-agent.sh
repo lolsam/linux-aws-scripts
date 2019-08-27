@@ -50,5 +50,7 @@ installssm() {
   echo "Error in installing SSM agent, exiting!!"
  fi
 }
+
+#Calling functions 
 checkssm
 installssm
