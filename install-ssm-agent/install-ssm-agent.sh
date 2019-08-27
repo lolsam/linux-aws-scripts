@@ -3,6 +3,8 @@
 SSMLINK=https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-manual-agent-install.html#agent-install-al
 SSMPKG=/tmp/ssm-agent.rpm
 
+#Function to check if SSM is already installed 
+
 checkssm() {
  echo "*****Checking if SSM agent is already installed*****"
  if [ ! -z $(which amazon-ssm-agent) ]; then
@@ -32,6 +34,8 @@ checkssm() {
  fi
  exit 1
 }
+
+#Function to install SSM if not present 
 
 installssm() {
  if [ ! -f /etc/redhat-release ]; then
