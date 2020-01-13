@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SSMLINK=https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-manual-agent-install.html#agent-install-al
-SSMPKG=/tmp/ssm-agent.rpm
+SSMLINK=https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+SSMPKG=/tmp/amazon-ssm-agent.rpm
 
 #Function to check if SSM is already installed 
 
