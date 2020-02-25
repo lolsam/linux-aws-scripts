@@ -1,11 +1,15 @@
 ### Setting hostname of autoscaled instances 
 
-Although AWS has a feature to tag the 'Name' value of instances launched via autoscaling it doesn't set unique names. 
+Background: 
+At work I ran into a similar case as this question posted on StackOverflow, and came up with a workaround. 
+https://stackoverflow.com/questions/35586337/aws-autoscaling-increment-name-tag 
 
-For example, if an autoscaling group launches 4 instances, and the Name tag is configured under AutoScaling Grous, all instances will have the same name.
+Although AWS has a feature to tag the 'Name' value of an instance launched via autoscaling it doesn't make those names unique.
 
-This is a frustrating limitation of AWS. Especially when troubleshooting and needing to login to an instance. If your monitoring platform shows 'prod-webapp' is having a problem there is not a method to differentiate which instance an Ops Engineer needs to login to. 
+For example, in an autoscaling group if the Name tag is set as 'prod-webapp', and new instances are launched via autoscaling, they will all be named 'prod-webapp'
 
-A workaround is to use AWS Cli to set to set a UNIQUE hostname AND the Name tag of your instance. 
+This is a frustrating limitation of AWS, especially when troubleshooting and needing to login to a server. If your monitoring platform shows 'prod-webapp' is having a problem, there is not a method to differentiate which instance an Engineer needs to login to. 
 
-Simply paste/modify the script provided under userdata. 
+A workaround is to use AWS Cli to set a UNIQUE hostname AND Name each instance differently. 
+
+Simply paste/modify the script provided under Userdata. 
