@@ -1,9 +1,7 @@
 #!/bin/bash
-
+{
 SSMLINK=https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-SSMPKG=/tmp/amazon-ssm-agent.rpm
-
-#Function to check if SSM is already installed 
+SSMPKG=/tmp/ssm-agent.rpm
 
 checkssm() {
  echo "*****Checking if SSM agent is already installed*****"
@@ -11,35 +9,12 @@ checkssm() {
   echo ""
   echo "SSM agent is already installed in `which amazon-ssm-agent`"
   echo ""
-  sleep 2
-  echo "*****Checking if SSM is running*****"
-  sleep 3
- fi
- SSM_RUNNING=`ps -ef | grep ['a']mazon-ssm-agent | wc -l`
- if [ ${SSM_RUNNING} -gt 0 ]; then
-  echo "SSM agent is already installed and running -- nothing left to do"
-  echo ""
-  ps -ef | grep ['a']mazon-ssm-agent
-  exit 1
- else
- echo "SSM agent is installed but not running.. starting it.."
- fi
- systemctl restart amazon-ssm-agent
- RET_VAL=$?
- if [ ${RET_VAL} -eq 0 ]; then
-  echo "SSM agent successfully started!"
- exit 1
-  else
- echo "Could not start SSM agent.. exiting!"
- fi
- exit 1
+  exit 1 
+fi
 }
-
-#Function to install SSM if not present 
-
 installssm() {
  if [ ! -f /etc/redhat-release ]; then
-  echo "This is not a RedHat distro, please go to ${SSMLINK} to find the right installation fine"
+  echo "This is not a RedHat distro, please go to AWS docs to find the right installation fine"
  else
  echo "Installing SSM.."
  curl ${SSMLINK} -o ${SSMPKG} && rpm -Uvh ${SSMPKG}
@@ -49,8 +24,9 @@ installssm() {
  if [ ${RET_VAL} -gt 0 ]; then
   echo "Error in installing SSM agent, exiting!!"
  fi
-}
-
-#Calling functions 
-checkssm
+ ps -ef | grep ['a']mazon-ssm-agent
+ }
+#Calling functions
+checkssm 
 installssm
+}
