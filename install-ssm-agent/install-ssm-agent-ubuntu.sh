@@ -13,11 +13,11 @@ fi
 }
 
 installssm() {
-mkdir /tmp/ssm
-cd /tmp/ssm
-wget ${SSMLINK}
-sudo dpkg -i amazon-ssm-agent.deb
-sudo systemctl enable amazon-ssm-agent
+ mkdir /tmp/ssm
+ cd /tmp/ssm
+ wget ${SSMLINK}
+ sudo dpkg -i amazon-ssm-agent.deb
+ sudo systemctl enable amazon-ssm-agent
 }
 #Calling functions
 checkssm 
