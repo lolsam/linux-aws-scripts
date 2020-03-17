@@ -38,3 +38,4 @@ sudo bash -c "cat << EOF > /etc/logrotate.d/amazon
 EOF"
 
 sudo logrotate -f /etc/logrotate.d/amazon
+}
