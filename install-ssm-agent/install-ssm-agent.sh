@@ -29,4 +29,19 @@ installssm() {
 #Calling functions
 checkssm 
 installssm
+
+#Setup logrotate for SSM log files to maintain disk space 
+
+sudo bash -c "cat << EOF > /etc/logrotate.d/amazon
+/var/log/amazon/ssm/errors.log {
+        daily
+        missingok
+        rotate 4
+        compress
+        delaycompress
+        copytruncate
+        minsize 100k
+}
+EOF"
+sudo logrotate -f /etc/logrotate.d/amazon
 }
