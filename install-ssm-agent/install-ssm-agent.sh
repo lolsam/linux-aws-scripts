@@ -33,15 +33,17 @@ installssm
 #Setup logrotate for SSM log files to maintain disk space 
 
 sudo bash -c "cat << EOF > /etc/logrotate.d/amazon
-/var/log/amazon/ssm/errors.log {
+/var/log/amazon/ssm/*.log {
         daily
         missingok
-        rotate 4
+        rotate 2
         compress
         delaycompress
         copytruncate
+        maxage 5
         minsize 100k
 }
 EOF"
+#force it to run 
 sudo logrotate -f /etc/logrotate.d/amazon
 }
