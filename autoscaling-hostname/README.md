@@ -6,9 +6,9 @@ https://stackoverflow.com/questions/35586337/aws-autoscaling-increment-name-tag
 
 Although AWS has a feature to tag the 'Name' value of an instance launched via autoscaling it doesn't make those names unique.
 
-For example, in an autoscaling group if the Name tag is set as 'prod-webapp', and new instances are launched via autoscaling, they will all be named 'prod-webapp'
+For example, in an autoscaling group if the Name tag is set as 'prod-webapp', new instances launched via autoscaling will all be named 'prod-webapp'
 
-This is a frustrating limitation of AWS, especially when troubleshooting and needing to login to a server. If your monitoring platform shows 'prod-webapp' is having a problem, there is not a method to differentiate which instance an Engineer needs to login to. 
+This is a frustrating limitation of AWS, especially when troubleshooting and needing to login to a server. If your monitoring platform shows 'prod-webapp' is having a problem, and there are 5 'prod-webapp' servers, there is not a method to differentiate which instance an Engineer needs to login to. 
 
 A workaround is to use AWS Cli to set a UNIQUE hostname AND Name each instance differently. 
 
