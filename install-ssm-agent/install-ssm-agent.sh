@@ -29,7 +29,7 @@ installssm() {
 #Calling functions
 checkssm 
 installssm
-
+systemctl enable amazon-ssm-agent
 #Setup logrotate for SSM log files to maintain disk space 
 
 sudo bash -c "cat << EOF > /etc/logrotate.d/amazon
