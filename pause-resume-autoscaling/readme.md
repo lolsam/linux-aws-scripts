@@ -1,0 +1,1 @@
+###Suspending and Resuming autoscaling via AWS CLI/Bash
