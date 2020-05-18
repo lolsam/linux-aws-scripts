@@ -10,7 +10,7 @@ if [ ${TOMCAT} -eq 0 ]; then
         echo "Tomcat is not running, starting it!"
         pkill -9 java
         sudo -i -u tomcat /opt/tomcat/bin/startup.sh
-        echo "This email is informational. Tomcat was restarted on `hostname -f` by cron!" | mail -s "Tomcat restarted on `hostname` -f!" sysalerts@ensocare.com 
+        echo "This email is informational. Tomcat was restarted on `hostname -f` by cron!" | mail -s "Tomcat restarted on `hostname` -f!" youremail@email.com 
 else
         echo "Tomcat is running, nothing to do"
         exit 1
