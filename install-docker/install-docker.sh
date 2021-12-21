@@ -6,4 +6,3 @@ systemctl enable docker
 
 #Adding user to Docker group
 usermod -aG docker $(whoami)
-
